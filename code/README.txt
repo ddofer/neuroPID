@@ -1,0 +1,34 @@
+﻿README:
+
+~ Contact the author/writer: Dan Ofer at ddofer"at"gmail.com if you have any questions, or for collaboration. 
+~All rights and IP reserved. 
+
+~Please note that they require the relevant packages to be installed, including NumPy, Sci-kit Learn, Numba, and BioPython. 
+(We recommend using the freely available, to Academic licenses Anaconda + Anaconda Accelerate environment for the dependencies). 
+
+~Brief description: 
+The following are brief descriptions of the attached python files and their functions.
+
+~Get+-FastaSets
+ - Downloads Neuropeptides from uniprotKB to a single multi-FASTA file, and a length-binned distribution of Negatives (non Neuropeptides) into multiple multi-FASTAs.
+ 
+~local_SLEEK_FeatureGen+_new
+   Extracts feature data from fasta file(s) in same directory as it, outputs results to a new .txt file. 
+  + Entering + as a parameter when requested causes the script to read ALL FASTAs/samples from all fasta/multiFASTA files in the directory/folder as it is in. 
+  - Entering - as a parameter when requested causes the script to read a SAMPLE (ex:80) FASTAs/samples from EACH individual fasta/multiFASTA files in the directory/folder as it is in. (So it would read 80 random samples from each fasta file, so for a directory containing 3 fasta files each containing 1,000 samples, the script would output a file with the feature data of 240 samples/proteins).
+	Output file names are POS or NEG respectively.
+This program is for use on the training sets if needed, and the test set. (For the Test set, use the + ! )
+
+
+~Testing_organismsML.py
+	Used to do Testing. Requires prior generation (via FeatureGen+) of Feature data .txt files for training, and from the target/test (multi_fasta)! 
+Reads/Imports the +- Training sets' feature data from a predefined location (must be entered in the script, or you can change the code parameters to accept user inputted dir/location instead).
+After Training data is imported, ML is automatically trained on it, then performs prediction on a given target/test file (containing feature data) location  (for prediction).
+
+
+~getTopPredictedOrganismResults.py
+	Similar to Testing_organismsML, outputs the " best"  results that have a probability/quorum past a user defined threshhold, and outputs the names of the samples that met this threshhold into a CSV file. 
+	
+	
+~Model_Statisticalparameters_Calc.py
+	Used to test performance of various paramters and schemes used for machine learning and the data sets. 
